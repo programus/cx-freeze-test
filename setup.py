@@ -21,7 +21,6 @@ plist_items = [
 bdist_mac_options = {
     'bundle_name': 'cx-freeze test',
     'plist_items': plist_items,
-    # 'codesign_identity': 'Mac Developer: Yuan Wang (A2ND4G7HSM)',
 }
 
 bdist_dmg_options = {
@@ -32,15 +31,17 @@ bdist_dmg_options = {
 
 build_exe_options = {
     'no_compress': True,
-    'include_files': [
-        'res',
-    ],
     'excludes': [
+    ],
+    'zip_include_packages': [
+        'PySide2',
+        'shiboken2',
     ],
     "include_msvcr": True,
 }
 
 options = {
+    'build_exe': build_exe_options,
     'bdist_mac': bdist_mac_options,
     'bdist_dmg': bdist_dmg_options,
 }
